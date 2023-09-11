@@ -14,18 +14,18 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/user/cdkv2_ephemeral_environment_services_construct.git',
   description: 'CDK Construct for custom ecs services',
   python: {
-  distName: 'customservice',
-  module: 'ecs-fargate--service',
+    distName: 'customservice',
+    module: 'ecs-fargate--service',
   },
   dotnet: {
-  dotNetNamespace: 'CDKCustomServiceLib',
-  packageId: 'com.CDKcustomservice.CustomService',
+    dotNetNamespace: 'CDKCustomServiceLib',
+    packageId: 'com.CDKcustomservice.CustomService',
   },
-  publishToMaven: {
-  javaPackage: 'com.cdkcustomservice.customservice',
-  mavenArtifactId: 'constructs',
-  mavenGroupId: 'ecs-fargate-service',
-  },
+  //publishToMaven: {
+  //  javaPackage: 'com.cdkcustomservice.customservice',
+  //  mavenArtifactId: 'constructs',
+  //  mavenGroupId: 'ecs-fargate-service',
+  //},
   majorVersion: 1,
   releaseTrigger: ReleaseTrigger.manual(),
   // deps: [],                /* Runtime dependencies of this module. */

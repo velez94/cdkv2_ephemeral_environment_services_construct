@@ -109,9 +109,9 @@ export class Cdkv2EphemeralEnvironmentServices extends Construct {
     );
 
     loadBalancedEcsService.taskDefinition.executionRole?.addManagedPolicy(
-      iam.ManagedPolicy.fromAwsManagedPolicyName("AmazonECSTaskExecutionRolePolicy"))
-    const service = loadBalancedEcsService.service
-    service.enableCloudMap({name:props.instanceInputs.inputs.service_discovery_name,cloudMapNamespace: nameSpace})
+      iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonECSTaskExecutionRolePolicy'));
+    const service = loadBalancedEcsService.service;
+    service.enableCloudMap({ name: props.instanceInputs.inputs.service_discovery_name, cloudMapNamespace: nameSpace });
 
   }
 
