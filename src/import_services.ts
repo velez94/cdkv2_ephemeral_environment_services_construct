@@ -27,9 +27,9 @@ export class ImportResources extends Construct {
   constructor(scope: Construct, id: string, props: ImportServiceProps) {
     super(scope, id);
 
-    
+
     // Import value from parameter store
-    const vpcId = ssm.StringParameter.valueFromLookup(this, `${props.parentEnv}/VPCID` );
+    const vpcId = ssm.StringParameter.valueFromLookup(this, `/${props.parentEnv}/VPCID` );
     // import VPC
     const importedVpc = ec2.Vpc.fromLookup(this, 'VPCImport', {
       vpcId: vpcId,
@@ -40,7 +40,7 @@ export class ImportResources extends Construct {
       this,
       'ClusterImport',
       {
-        clusterName: Fn.importValue( `ECSClusterName-${props.parentEnv}`), //environmentOutputs.outputs.ECSClusterName,
+        clusterName: Fn.importValue( `ECSClusterName-${props.parentEnv}`),
         vpc: importedVpc,
         securityGroups: JSON.parse(
           props.environmentOutputs.outputs.ECSClusterSecGrps,
