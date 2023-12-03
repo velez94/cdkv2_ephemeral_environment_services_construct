@@ -27,10 +27,10 @@ export class ImportResources extends Construct {
   constructor(scope: Construct, id: string, props: ImportServiceProps) {
     super(scope, id);
 
-    // import VPC
+    
     // Import value from parameter store
     const vpcId = ssm.StringParameter.valueFromLookup(this, `${props.parentEnv}/VPCID` );
-
+    // import VPC
     const importedVpc = ec2.Vpc.fromLookup(this, 'VPCImport', {
       vpcId: vpcId,
     });
