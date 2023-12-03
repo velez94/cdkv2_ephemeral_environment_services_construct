@@ -1,4 +1,11 @@
 
+### [1.0.7](https://github.com/user/cdkv2_ephemeral_environment_services_construct/compare/v1.0.6...v1.0.7) (2023-12-03)
+
+
+### Bug Fixes
+
+* add vpc id ssm parameter ([9dc54e9](https://github.com/user/cdkv2_ephemeral_environment_services_construct/commit/9dc54e9b4f0fc561a46226cca408d4be0698046a))
+
 ### [1.0.6](https://github.com/user/cdkv2_ephemeral_environment_services_construct/compare/v1.0.5...v1.0.6) (2023-12-03)
 
 
