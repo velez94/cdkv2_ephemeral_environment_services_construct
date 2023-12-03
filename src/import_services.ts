@@ -1,6 +1,7 @@
 import { StackProps, Fn } from 'aws-cdk-lib';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import * as ecs from 'aws-cdk-lib/aws-ecs';
+import * as ssm from 'aws-cdk-lib/aws-ssm';
 import * as alb from 'aws-cdk-lib/aws-elasticloadbalancingv2';
 import { Construct } from 'constructs';
 
@@ -26,9 +27,10 @@ export class ImportResources extends Construct {
   constructor(scope: Construct, id: string, props: ImportServiceProps) {
     super(scope, id);
 
-
+    // import VPC
+    const vpcId = ssm.StringParameter.valueFromLookup(this, `${props.parentEnv}/VPCID` );
     const importedVpc = ec2.Vpc.fromLookup(this, 'VPCImport', {
-      vpcId: props.vpcId,
+      vpcId: vpcId,
     });
 
     // Import Cluster

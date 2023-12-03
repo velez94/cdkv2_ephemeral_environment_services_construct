@@ -2,7 +2,6 @@ import { StackProps, Fn, Duration } from 'aws-cdk-lib';
 import * as ecs from 'aws-cdk-lib/aws-ecs';
 import * as ecsPatterns from 'aws-cdk-lib/aws-ecs-patterns';
 import * as iam from 'aws-cdk-lib/aws-iam';
-import * as alb from 'aws-cdk-lib/aws-elasticloadbalancingv2';
 import * as serviceDiscovery from 'aws-cdk-lib/aws-servicediscovery';
 import { Construct } from 'constructs';
 import { ImportResources } from './import_services';
@@ -108,9 +107,9 @@ export class Cdkv2EphemeralEnvironmentServices extends Construct {
 
     },
     );
-    const health_path =  props.instanceInputs.inputs.health_path ?? "/"
-   
-    loadBalancedEcsService.targetGroup.configureHealthCheck({path: health_path})
+    const health_path = props.instanceInputs.inputs.health_path ?? '/';
+
+    loadBalancedEcsService.targetGroup.configureHealthCheck({ path: health_path });
 
     loadBalancedEcsService.taskDefinition.executionRole?.addManagedPolicy(
       iam.ManagedPolicy.fromAwsManagedPolicyName('service-role/AmazonECSTaskExecutionRolePolicy'),
