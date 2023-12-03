@@ -1,4 +1,11 @@
 
+### [1.0.8](https://github.com/user/cdkv2_ephemeral_environment_services_construct/compare/v1.0.7...v1.0.8) (2023-12-03)
+
+
+### Bug Fixes
+
+* parameter store name for vpc id ([12b41bd](https://github.com/user/cdkv2_ephemeral_environment_services_construct/commit/12b41bd04f81d68f6febb1e99e5d5e48b895d14e))
+
 ### [1.0.7](https://github.com/user/cdkv2_ephemeral_environment_services_construct/compare/v1.0.6...v1.0.7) (2023-12-03)
 
 
